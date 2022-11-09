@@ -39,9 +39,7 @@ public class Main extends javax.swing.JFrame {
         abaMoradores = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableMoradores = new javax.swing.JTable();
-        abaProblemas = new javax.swing.JTabbedPane();
-        abaReunioes = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        moradorPanel = new javax.swing.JPanel();
         lblCpf = new javax.swing.JLabel();
         txtCpf = new javax.swing.JTextField();
         lblNome = new javax.swing.JLabel();
@@ -64,6 +62,8 @@ public class Main extends javax.swing.JFrame {
         btnCriar = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
+        abaProblemas = new javax.swing.JTabbedPane();
+        abaReunioes = new javax.swing.JTabbedPane();
 
         menuRefresh.setText("Atualizar");
         menuRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -107,11 +107,7 @@ public class Main extends javax.swing.JFrame {
 
         abaMoradores.addTab("Lista de moradores", jScrollPane1);
 
-        jTabbedPane1.addTab("Moradores", abaMoradores);
-        jTabbedPane1.addTab("Problemas", abaProblemas);
-        jTabbedPane1.addTab("Reuniões", abaReunioes);
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Morador"));
+        moradorPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Editando morador"));
 
         lblCpf.setText("CPF");
 
@@ -159,134 +155,128 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(lblSobrenome)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtSobrenome))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(lblCpf)
-                                                .addGap(18, 18, 18))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(lblNome)
-                                                .addGap(8, 8, 8)))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(28, 28, 28)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblTelefones)
-                                            .addComponent(lblEmails))
-                                        .addGap(27, 27, 27))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblApartamento)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtTelefones)
-                                    .addComponent(txtEmails)
-                                    .addComponent(txtApartamento, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
-                                .addGap(32, 32, 32)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblSituacoes)
-                                    .addComponent(lblObservacoes)
-                                    .addComponent(lblPendencias)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+        javax.swing.GroupLayout moradorPanelLayout = new javax.swing.GroupLayout(moradorPanel);
+        moradorPanel.setLayout(moradorPanelLayout);
+        moradorPanelLayout.setHorizontalGroup(
+            moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moradorPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moradorPanelLayout.createSequentialGroup()
+                        .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(moradorPanelLayout.createSequentialGroup()
+                                .addComponent(lblSobrenome)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtSobrenome))
+                            .addGroup(moradorPanelLayout.createSequentialGroup()
+                                .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moradorPanelLayout.createSequentialGroup()
+                                        .addComponent(lblCpf)
+                                        .addGap(18, 18, 18))
+                                    .addGroup(moradorPanelLayout.createSequentialGroup()
+                                        .addComponent(lblNome)
+                                        .addGap(8, 8, 8)))
+                                .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(moradorPanelLayout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblTelefones)
+                                    .addComponent(lblEmails))
+                                .addGap(27, 27, 27))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moradorPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblApartamento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))))
+                    .addGroup(moradorPanelLayout.createSequentialGroup()
+                        .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(79, 79, 79)))
+                .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(moradorPanelLayout.createSequentialGroup()
+                        .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTelefones)
+                            .addComponent(txtEmails)
+                            .addComponent(txtApartamento, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
+                        .addGap(32, 32, 32)
+                        .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSituacoes)
+                            .addComponent(lblObservacoes)
+                            .addComponent(lblPendencias))
+                        .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
                             .addComponent(txtObservacoes)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(moradorPanelLayout.createSequentialGroup()
                                 .addComponent(comboBoxSituacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(moradorPanelLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55))))
+                        .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        moradorPanelLayout.setVerticalGroup(
+            moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moradorPanelLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(moradorPanelLayout.createSequentialGroup()
+                        .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCpf)
                             .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTelefones)
                             .addComponent(txtTelefones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPendencias))
                         .addGap(5, 5, 5)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNome)
                             .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEmails)
                             .addComponent(txtEmails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblSobrenome)
                             .addComponent(txtSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblApartamento)
                             .addComponent(txtApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(moradorPanelLayout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtObservacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblObservacoes))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblSituacoes)
                             .addComponent(comboBoxSituacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                        .addComponent(btnDeletar, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
-                    .addComponent(btnCriar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, 0))
         );
+
+        abaMoradores.addTab("Editar", moradorPanel);
+
+        jTabbedPane1.addTab("Moradores", abaMoradores);
+        jTabbedPane1.addTab("Problemas", abaProblemas);
+        jTabbedPane1.addTab("Reuniões", abaReunioes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 909, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -349,6 +339,10 @@ public class Main extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e.getMessage());
             }
         });
+
+        if (SwingUtilities.isRightMouseButton(evt) && evt.getClickCount() == 1) {
+            jPopupMenu1.show(tableMoradores, evt.getX(), evt.getY());
+        }
 
     }//GEN-LAST:event_tableMoradoresMouseClicked
 
@@ -461,7 +455,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnDeletar;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> comboBoxSituacoes;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
@@ -476,6 +469,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lblSobrenome;
     private javax.swing.JLabel lblTelefones;
     private javax.swing.JMenuItem menuRefresh;
+    private javax.swing.JPanel moradorPanel;
     private javax.swing.JTable tableMoradores;
     private javax.swing.JTextField txtApartamento;
     private javax.swing.JTextField txtCpf;

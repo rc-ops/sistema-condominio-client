@@ -17,13 +17,13 @@ public interface MoradorApi {
 
     @GET("/moradores/pesquisa/cpf/{cpf}")
     Call<Morador> findMoradorByCpf(@Path("cpf") String cpf);
-    
+
     @POST("/moradores/novo")
     Call<Void> createMorador(@Body Morador morador);
-    
+
     @PUT("/moradores/atualizar/{cpf}") // Talvez dê erro
     Call<Void> updateMorador(@Path("cpf") String cpf, @Body Morador morador);
-    
+
     @DELETE("/moradores/deletar/{cpf}")
     Call<Void> deleteMorador(@Path("cpf") String cpf);
 }

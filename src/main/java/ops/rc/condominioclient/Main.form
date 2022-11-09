@@ -43,22 +43,14 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="0" pref="909" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" min="-2" pref="535" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" min="-2" pref="271" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -121,49 +113,28 @@
                 </Component>
               </SubComponents>
             </Container>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JTabbedPane" name="abaProblemas">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Problemas">
-                <Property name="tabTitle" type="java.lang.String" value="Problemas"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
+            <Container class="javax.swing.JPanel" name="moradorPanel">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Editando morador"/>
+                  </Border>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Editar">
+                    <Property name="tabTitle" type="java.lang.String" value="Editar"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
 
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
-        </Container>
-        <Container class="javax.swing.JTabbedPane" name="abaReunioes">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Reuni&#xf5;es">
-                <Property name="tabTitle" type="java.lang.String" value="Reuni&#xf5;es"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
-        </Container>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPanel" name="jPanel1">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Morador"/>
-          </Border>
-        </Property>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Layout>
+                <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
@@ -203,6 +174,14 @@
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btnCriar" min="-2" pref="191" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="txtTelefones" max="32767" attributes="0"/>
                                       <Component id="txtEmails" max="32767" attributes="0"/>
@@ -214,210 +193,222 @@
                                       <Component id="lblObservacoes" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblPendencias" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jScrollPane3" pref="402" max="32767" attributes="0"/>
+                                      <Component id="txtObservacoes" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="comboBoxSituacoes" min="-2" pref="92" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="btnUpdate" min="-2" pref="135" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                                  <Component id="btnUpdate" min="-2" pref="186" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="btnDeletar" min="-2" pref="190" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="btnCriar" min="-2" pref="135" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane3" pref="390" max="32767" attributes="0"/>
-                              <Component id="txtObservacoes" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboBoxSituacoes" min="-2" pref="92" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblCpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtCpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTelefones" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtTelefones" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblPendencias" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblEmails" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtEmails" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblSobrenome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtSobrenome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jScrollPane3" min="-2" pref="37" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtObservacoes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblObservacoes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblSituacoes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboBoxSituacoes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnDeletar" min="-2" pref="135" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblCpf" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCpf" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTelefones" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtTelefones" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblPendencias" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnCriar" min="-2" pref="51" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="btnUpdate" alignment="0" min="-2" pref="52" max="-2" attributes="0"/>
+                                  <Component id="btnDeletar" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblEmails" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtEmails" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblSobrenome" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtSobrenome" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jScrollPane3" min="-2" pref="37" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtObservacoes" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblObservacoes" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblSituacoes" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboBoxSituacoes" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnUpdate" alignment="3" pref="48" max="32767" attributes="0"/>
-                          <Component id="btnDeletar" alignment="3" pref="48" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="btnCriar" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblCpf">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="CPF"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtCpf">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblNome">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nome"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNome">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblSobrenome">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sobrenome"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtSobrenome">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblTelefones">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Telefones"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtTelefones">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblEmails">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Emails"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtEmails">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblApartamento">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Apartamento"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtApartamento">
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblObservacoes">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Observa&#xe7;&#xf5;es"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblPendencias">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Pend&#xea;ncias"/>
-          </Properties>
-        </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane3">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="lblCpf">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="CPF"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtCpf">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblNome">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Nome"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtNome">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblSobrenome">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sobrenome"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtSobrenome">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblTelefones">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Telefones"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtTelefones">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEmails">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Emails"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtEmails">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblApartamento">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Apartamento"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtApartamento">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblObservacoes">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Observa&#xe7;&#xf5;es"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblPendencias">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Pend&#xea;ncias"/>
+                  </Properties>
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
 
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTextArea" name="txtPendencias">
-              <Properties>
-                <Property name="columns" type="int" value="20"/>
-                <Property name="lineWrap" type="boolean" value="true"/>
-                <Property name="rows" type="int" value="1"/>
-              </Properties>
-            </Component>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="txtPendencias">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="lineWrap" type="boolean" value="true"/>
+                        <Property name="rows" type="int" value="1"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="lblSituacoes">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Situa&#xe7;&#xe3;o"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtObservacoes">
+                </Component>
+                <Component class="javax.swing.JComboBox" name="comboBoxSituacoes">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="4">
+                        <StringItem index="0" value="OK"/>
+                        <StringItem index="1" value="PENDENTE"/>
+                        <StringItem index="2" value="ALUGADO"/>
+                        <StringItem index="3" value="OUTRO"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnCriar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Criar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCriarActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnUpdate">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Update"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnDeletar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Deletar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeletarActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="lblSituacoes">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Situa&#xe7;&#xe3;o"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtObservacoes">
-        </Component>
-        <Component class="javax.swing.JComboBox" name="comboBoxSituacoes">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="OK"/>
-                <StringItem index="1" value="PENDENTE"/>
-                <StringItem index="2" value="ALUGADO"/>
-                <StringItem index="3" value="OUTRO"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnCriar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Criar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCriarActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnUpdate">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Update"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnDeletar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Deletar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeletarActionPerformed"/>
-          </Events>
-        </Component>
+        <Container class="javax.swing.JTabbedPane" name="abaProblemas">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Problemas">
+                <Property name="tabTitle" type="java.lang.String" value="Problemas"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+        </Container>
+        <Container class="javax.swing.JTabbedPane" name="abaReunioes">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Reuni&#xf5;es">
+                <Property name="tabTitle" type="java.lang.String" value="Reuni&#xf5;es"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>
