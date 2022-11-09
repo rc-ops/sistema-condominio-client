@@ -662,7 +662,25 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateProblemaActionPerformed
 
     private void btnDeletarProblemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarProblemaActionPerformed
-
+        int selectedRow = tableProblemas.getSelectedRow();
+        int id = Integer.parseInt(tableProblemas.getValueAt(selectedRow, 0).toString());
+        int result = JOptionPane.showConfirmDialog(null, "Deseja excluir o problema?",
+                "Excluir problema", JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
+            ProblemaApi problemaApi = ApiClient.getClient().create(ProblemaApi.class);
+            problemaApi.deleteProblema(id).enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> arg0, Response<Void> response) {
+                    if (response.isSuccessful()) {
+                        loadData();
+                    }
+                }
+                @Override
+                public void onFailure(Call<Void> arg0, Throwable e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            });
+        }
     }//GEN-LAST:event_btnDeletarProblemaActionPerformed
 
     /**
