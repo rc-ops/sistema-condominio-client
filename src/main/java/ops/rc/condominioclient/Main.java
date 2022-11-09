@@ -1,14 +1,18 @@
 package ops.rc.condominioclient;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 
 import api.ApiClient;
 import api.MoradorApi;
+import api.ProblemaApi;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import ops.rc.condominioclient.entities.Morador;
+import ops.rc.condominioclient.entities.Problema;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,7 +37,7 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jPopupMenu = new javax.swing.JPopupMenu();
         menuRefresh = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         abaMoradores = new javax.swing.JTabbedPane();
@@ -63,6 +67,23 @@ public class Main extends javax.swing.JFrame {
         btnUpdate = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
         abaProblemas = new javax.swing.JTabbedPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableProblemas = new javax.swing.JTable();
+        problemaPanel = new javax.swing.JPanel();
+        lblNomeProblema = new javax.swing.JLabel();
+        txtNomeProblema = new javax.swing.JTextField();
+        lblDataInicio = new javax.swing.JLabel();
+        txtDataInicio = new javax.swing.JTextField();
+        lblDataResolucao = new javax.swing.JLabel();
+        txtDataResolucao = new javax.swing.JTextField();
+        lblDescricao = new javax.swing.JLabel();
+        lblSituacoes1 = new javax.swing.JLabel();
+        comboBoxSituacoesProblema = new javax.swing.JComboBox<>();
+        btnCriarProblema = new javax.swing.JButton();
+        btnUpdateProblema = new javax.swing.JButton();
+        btnDeletarProblema = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txtDescricaoProblema = new javax.swing.JTextArea();
         abaReunioes = new javax.swing.JTabbedPane();
 
         menuRefresh.setText("Atualizar");
@@ -71,7 +92,7 @@ public class Main extends javax.swing.JFrame {
                 menuRefreshActionPerformed(evt);
             }
         });
-        jPopupMenu1.add(menuRefresh);
+        jPopupMenu.add(menuRefresh);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Condomínio ABC");
@@ -254,15 +275,156 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
         );
 
         abaMoradores.addTab("Editar", moradorPanel);
 
         jTabbedPane1.addTab("Moradores", abaMoradores);
+
+        abaProblemas.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
+
+        jScrollPane2.setMaximumSize(new java.awt.Dimension(32767, 380));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(452, 380));
+        jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jScrollPane2MouseClicked(evt);
+            }
+        });
+
+        tableProblemas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tableProblemas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableProblemasMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tableProblemas);
+
+        abaProblemas.addTab("Lista de problemas", jScrollPane2);
+
+        problemaPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Editando problema"));
+
+        lblNomeProblema.setText("Problema");
+
+        lblDataInicio.setText("Data início");
+
+        lblDataResolucao.setText("Data resolução");
+
+        lblDescricao.setText("Descrição");
+
+        lblSituacoes1.setText("Situação");
+
+        comboBoxSituacoesProblema.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RESOLVIDO", "NÃO RESOLVIDO" }));
+
+        btnCriarProblema.setText("Criar");
+        btnCriarProblema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCriarProblemaActionPerformed(evt);
+            }
+        });
+
+        btnUpdateProblema.setText("Update");
+        btnUpdateProblema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateProblemaActionPerformed(evt);
+            }
+        });
+
+        btnDeletarProblema.setText("Deletar");
+        btnDeletarProblema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletarProblemaActionPerformed(evt);
+            }
+        });
+
+        txtDescricaoProblema.setColumns(20);
+        txtDescricaoProblema.setLineWrap(true);
+        txtDescricaoProblema.setRows(2);
+        jScrollPane4.setViewportView(txtDescricaoProblema);
+
+        javax.swing.GroupLayout problemaPanelLayout = new javax.swing.GroupLayout(problemaPanel);
+        problemaPanel.setLayout(problemaPanelLayout);
+        problemaPanelLayout.setHorizontalGroup(
+            problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(problemaPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, problemaPanelLayout.createSequentialGroup()
+                        .addGroup(problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDataInicio)
+                            .addGroup(problemaPanelLayout.createSequentialGroup()
+                                .addGroup(problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNomeProblema)
+                                    .addComponent(lblSituacoes1))
+                                .addGap(18, 18, 18)
+                                .addGroup(problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(comboBoxSituacoesProblema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNomeProblema, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                                    .addComponent(txtDataInicio))))
+                        .addGap(37, 37, 37)
+                        .addGroup(problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDataResolucao)
+                            .addComponent(lblDescricao))
+                        .addGap(27, 27, 27))
+                    .addGroup(problemaPanelLayout.createSequentialGroup()
+                        .addComponent(btnCriarProblema, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(79, 79, 79)))
+                .addGroup(problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(problemaPanelLayout.createSequentialGroup()
+                        .addComponent(btnUpdateProblema, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                        .addComponent(btnDeletarProblema, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(problemaPanelLayout.createSequentialGroup()
+                        .addGroup(problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane4)
+                            .addComponent(txtDataResolucao))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        problemaPanelLayout.setVerticalGroup(
+            problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(problemaPanelLayout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDataResolucao)
+                    .addComponent(txtDataResolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNomeProblema)
+                    .addComponent(txtNomeProblema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(problemaPanelLayout.createSequentialGroup()
+                        .addComponent(lblDataInicio)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addGroup(problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSituacoes1)
+                            .addComponent(comboBoxSituacoesProblema, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(problemaPanelLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(lblDescricao))
+                    .addComponent(txtDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnUpdateProblema, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCriarProblema, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeletarProblema, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11))
+        );
+
+        abaProblemas.addTab("Editar", problemaPanel);
+
         jTabbedPane1.addTab("Problemas", abaProblemas);
         jTabbedPane1.addTab("Reuniões", abaReunioes);
 
@@ -341,7 +503,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         if (SwingUtilities.isRightMouseButton(evt) && evt.getClickCount() == 1) {
-            jPopupMenu1.show(tableMoradores, evt.getX(), evt.getY());
+            jPopupMenu.show(tableMoradores, evt.getX(), evt.getY());
         }
 
     }//GEN-LAST:event_tableMoradoresMouseClicked
@@ -369,7 +531,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jScrollPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane1MouseClicked
         if (SwingUtilities.isRightMouseButton(evt) && evt.getClickCount() == 1) {
-            jPopupMenu1.show(tableMoradores, evt.getX(), evt.getY());
+            jPopupMenu.show(tableMoradores, evt.getX(), evt.getY());
         }
     }//GEN-LAST:event_jScrollPane1MouseClicked
 
@@ -407,6 +569,75 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void tableProblemasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProblemasMouseClicked
+        int selectedRow = tableProblemas.getSelectedRow();
+        int id = Integer.parseInt(tableProblemas.getValueAt(selectedRow, 0).toString());
+        ProblemaApi problemaApi = ApiClient.getClient().create(ProblemaApi.class);
+        problemaApi.findProblemaById(id).enqueue(new Callback<Problema>() {
+            @Override
+            public void onResponse(Call<Problema> arg0, Response<Problema> response) {
+                if (response.isSuccessful()) {
+                    Problema problema = response.body();
+                    txtNomeProblema.setText(problema.getProblema());
+                    txtDataInicio.setText(problema.getDataInicio().toString());
+                    txtDataResolucao.setText(problema.getDataResolucao().toString());
+                    txtDescricaoProblema.setText(problema.getDescricao());
+                    comboBoxSituacoesProblema.setSelectedItem(problema.getSituacaoProblema());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Problema> arg0, Throwable e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
+        });
+
+        if (SwingUtilities.isRightMouseButton(evt) && evt.getClickCount() == 1) {
+            jPopupMenu.show(tableProblemas, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_tableProblemasMouseClicked
+
+    private void jScrollPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane2MouseClicked
+        if (SwingUtilities.isRightMouseButton(evt) && evt.getClickCount() == 1) {
+            jPopupMenu.show(tableProblemas, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_jScrollPane2MouseClicked
+
+    private void btnCriarProblemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarProblemaActionPerformed
+        try {
+            Problema problema = new Problema();
+            problema.setProblema(txtNomeProblema.getText());
+            problema.setDataInicio(txtDataInicio.getText());
+            problema.setDataResolucao(txtDataResolucao.getText());
+            problema.setDescricao(txtDescricaoProblema.getText());
+            problema.setSituacaoProblema(String.valueOf(comboBoxSituacoesProblema.getSelectedItem()));
+            ProblemaApi problemaApi = ApiClient.getClient().create(ProblemaApi.class);
+            problemaApi.createProblema(problema).enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> arg0, Response<Void> response) {
+                    if (response.isSuccessful()) {
+                        loadData();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Void> arg0, Throwable e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            });
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btnCriarProblemaActionPerformed
+
+    private void btnUpdateProblemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateProblemaActionPerformed
+
+    }//GEN-LAST:event_btnUpdateProblemaActionPerformed
+
+    private void btnDeletarProblemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarProblemaActionPerformed
+        
+    }//GEN-LAST:event_btnDeletarProblemaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -452,29 +683,46 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTabbedPane abaProblemas;
     private javax.swing.JTabbedPane abaReunioes;
     private javax.swing.JButton btnCriar;
+    private javax.swing.JButton btnCriarProblema;
     private javax.swing.JButton btnDeletar;
+    private javax.swing.JButton btnDeletarProblema;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnUpdateProblema;
     private javax.swing.JComboBox<String> comboBoxSituacoes;
-    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JComboBox<String> comboBoxSituacoesProblema;
+    private javax.swing.JPopupMenu jPopupMenu;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblApartamento;
     private javax.swing.JLabel lblCpf;
+    private javax.swing.JLabel lblDataInicio;
+    private javax.swing.JLabel lblDataResolucao;
+    private javax.swing.JLabel lblDescricao;
     private javax.swing.JLabel lblEmails;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblNomeProblema;
     private javax.swing.JLabel lblObservacoes;
     private javax.swing.JLabel lblPendencias;
     private javax.swing.JLabel lblSituacoes;
+    private javax.swing.JLabel lblSituacoes1;
     private javax.swing.JLabel lblSobrenome;
     private javax.swing.JLabel lblTelefones;
     private javax.swing.JMenuItem menuRefresh;
     private javax.swing.JPanel moradorPanel;
+    private javax.swing.JPanel problemaPanel;
     private javax.swing.JTable tableMoradores;
+    private javax.swing.JTable tableProblemas;
     private javax.swing.JTextField txtApartamento;
     private javax.swing.JTextField txtCpf;
+    private javax.swing.JTextField txtDataInicio;
+    private javax.swing.JTextField txtDataResolucao;
+    private javax.swing.JTextArea txtDescricaoProblema;
     private javax.swing.JTextField txtEmails;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtNomeProblema;
     private javax.swing.JTextField txtObservacoes;
     private javax.swing.JTextArea txtPendencias;
     private javax.swing.JTextField txtSobrenome;
@@ -484,22 +732,24 @@ public class Main extends javax.swing.JFrame {
     private void loadData() {
         try {
             MoradorApi moradorApi = ApiClient.getClient().create(MoradorApi.class);
+            ProblemaApi problemaApi = ApiClient.getClient().create(ProblemaApi.class);
+
             moradorApi.findAll().enqueue(new Callback<List<Morador>>() {
                 @Override
                 public void onResponse(Call<List<Morador>> call, Response<List<Morador>> response) {
                     if (response.isSuccessful()) {
-                        DefaultTableModel defaultTableModel = new DefaultTableModel();
-                        defaultTableModel.addColumn("CPF");
-                        defaultTableModel.addColumn("Nome");
-                        defaultTableModel.addColumn("Sobrenome");
-                        defaultTableModel.addColumn("Telefone");
-                        defaultTableModel.addColumn("Email");
-                        defaultTableModel.addColumn("Apartamento");
-                        defaultTableModel.addColumn("Observações");
-                        defaultTableModel.addColumn("Pendências");
-                        defaultTableModel.addColumn("Situação");
+                        DefaultTableModel defaultTableModelMorador = new DefaultTableModel();
+                        defaultTableModelMorador.addColumn("CPF");
+                        defaultTableModelMorador.addColumn("Nome");
+                        defaultTableModelMorador.addColumn("Sobrenome");
+                        defaultTableModelMorador.addColumn("Telefone");
+                        defaultTableModelMorador.addColumn("Email");
+                        defaultTableModelMorador.addColumn("Apartamento");
+                        defaultTableModelMorador.addColumn("Observações");
+                        defaultTableModelMorador.addColumn("Pendências");
+                        defaultTableModelMorador.addColumn("Situação");
                         for (Morador morador : response.body()) {
-                            defaultTableModel.addRow(new Object[]{
+                            defaultTableModelMorador.addRow(new Object[]{
                                 morador.getCpf(),
                                 morador.getNome(),
                                 morador.getSobrenome(),
@@ -511,7 +761,7 @@ public class Main extends javax.swing.JFrame {
                                 morador.getSituacaoMorador()
                             });
                         }
-                        tableMoradores.setModel(defaultTableModel);
+                        tableMoradores.setModel(defaultTableModelMorador);
                     }
                 }
 
@@ -521,7 +771,41 @@ public class Main extends javax.swing.JFrame {
                 }
 
             });
+
+            problemaApi.findAll().enqueue(new Callback<List<Problema>>() {
+                @Override
+                public void onResponse(Call<List<Problema>> call, Response<List<Problema>> response) {
+                    if (response.isSuccessful()) {
+                        DefaultTableModel defaultTableModelProblema = new DefaultTableModel();
+                        defaultTableModelProblema.addColumn("Código");
+                        defaultTableModelProblema.addColumn("Problema");
+                        defaultTableModelProblema.addColumn("Início");
+                        defaultTableModelProblema.addColumn("Resolução");
+                        defaultTableModelProblema.addColumn("Situação");
+                        defaultTableModelProblema.addColumn("Descrição");
+                        for (Problema problema : response.body()) {
+                            defaultTableModelProblema.addRow(new Object[]{
+                                problema.getCodigo(),
+                                problema.getProblema(),
+                                problema.getDataInicio(),
+                                problema.getDataResolucao(),
+                                problema.getSituacaoProblema(),
+                                problema.getDescricao()
+                            });
+                        }
+                        tableProblemas.setModel(defaultTableModelProblema);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<Problema>> Call, Throwable t) {
+                    JOptionPane.showConfirmDialog(null, t.getMessage());
+                }
+
+            });
+
         } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }
