@@ -632,11 +632,37 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCriarProblemaActionPerformed
 
     private void btnUpdateProblemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateProblemaActionPerformed
+        int selectedRow = tableProblemas.getSelectedRow();
+        int id = Integer.parseInt(tableProblemas.getValueAt(selectedRow, 0).toString());
+        try {
+            Problema problema = new Problema();
+            problema.setCodigo(id);
+            problema.setProblema(txtNomeProblema.getText());
+            problema.setDataInicio(txtDataInicio.getText());
+            problema.setDataResolucao(txtDataResolucao.getText());
+            problema.setDescricao(txtDescricaoProblema.getText());
+            problema.setSituacaoProblema(String.valueOf(comboBoxSituacoesProblema.getSelectedItem()));
+            ProblemaApi problemaApi = ApiClient.getClient().create(ProblemaApi.class);
+            problemaApi.createProblema(problema).enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> arg0, Response<Void> response) {
+                    if (response.isSuccessful()) {
+                        loadData();
+                    }
+                }
 
+                @Override
+                public void onFailure(Call<Void> arg0, Throwable e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            });
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_btnUpdateProblemaActionPerformed
 
     private void btnDeletarProblemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarProblemaActionPerformed
-        
+
     }//GEN-LAST:event_btnDeletarProblemaActionPerformed
 
     /**
