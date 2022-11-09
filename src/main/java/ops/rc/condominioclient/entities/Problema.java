@@ -2,8 +2,6 @@ package ops.rc.condominioclient.entities;
 
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
