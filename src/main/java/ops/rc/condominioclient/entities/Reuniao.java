@@ -2,7 +2,6 @@ package ops.rc.condominioclient.entities;
 
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
-import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,8 +11,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Reuniao implements Serializable {
 
+    @SerializedName("codigo")
+    private int codigo;
     @SerializedName("finalidade")
     private String finalidade;
     @SerializedName("data")
-    private Date data;
+    private String data;
 }

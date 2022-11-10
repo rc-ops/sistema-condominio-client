@@ -9,10 +9,12 @@ import javax.swing.JOptionPane;
 import api.ApiClient;
 import api.MoradorApi;
 import api.ProblemaApi;
+import api.ReuniaoApi;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import ops.rc.condominioclient.entities.Morador;
 import ops.rc.condominioclient.entities.Problema;
+import ops.rc.condominioclient.entities.Reuniao;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -85,6 +87,17 @@ public class Main extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         txtDescricaoProblema = new javax.swing.JTextArea();
         abaReunioes = new javax.swing.JTabbedPane();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tableReunioes = new javax.swing.JTable();
+        problemaPanel1 = new javax.swing.JPanel();
+        lblDataReuniao = new javax.swing.JLabel();
+        txtDataReuniao = new javax.swing.JTextField();
+        lblFinalidadeReuniao = new javax.swing.JLabel();
+        btnCriarReuniao = new javax.swing.JButton();
+        btnUpdateReuniao = new javax.swing.JButton();
+        btnDeletarReuniao = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        txtFinalidadeReuniao = new javax.swing.JTextArea();
 
         menuRefresh.setText("Atualizar");
         menuRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -426,7 +439,119 @@ public class Main extends javax.swing.JFrame {
         abaProblemas.addTab("Editar", problemaPanel);
 
         jTabbedPane1.addTab("Problemas", abaProblemas);
+
+        abaReunioes.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
+
+        jScrollPane5.setMaximumSize(new java.awt.Dimension(32767, 380));
+        jScrollPane5.setPreferredSize(new java.awt.Dimension(452, 380));
+        jScrollPane5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jScrollPane5MouseClicked(evt);
+            }
+        });
+
+        tableReunioes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tableReunioes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableReunioesMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tableReunioes);
+
+        abaReunioes.addTab("Lista de reuniões", jScrollPane5);
+
+        problemaPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Editando problema"));
+
+        lblDataReuniao.setText("Data reunião");
+
+        lblFinalidadeReuniao.setText("Finalidade");
+
+        btnCriarReuniao.setText("Criar");
+        btnCriarReuniao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCriarReuniaoActionPerformed(evt);
+            }
+        });
+
+        btnUpdateReuniao.setText("Update");
+        btnUpdateReuniao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateReuniaoActionPerformed(evt);
+            }
+        });
+
+        btnDeletarReuniao.setText("Deletar");
+        btnDeletarReuniao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletarReuniaoActionPerformed(evt);
+            }
+        });
+
+        txtFinalidadeReuniao.setColumns(20);
+        txtFinalidadeReuniao.setLineWrap(true);
+        txtFinalidadeReuniao.setRows(2);
+        jScrollPane6.setViewportView(txtFinalidadeReuniao);
+
+        javax.swing.GroupLayout problemaPanel1Layout = new javax.swing.GroupLayout(problemaPanel1);
+        problemaPanel1.setLayout(problemaPanel1Layout);
+        problemaPanel1Layout.setHorizontalGroup(
+            problemaPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(problemaPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(problemaPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(problemaPanel1Layout.createSequentialGroup()
+                        .addComponent(btnCriarReuniao, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(79, 79, 79))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, problemaPanel1Layout.createSequentialGroup()
+                        .addComponent(lblDataReuniao)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtDataReuniao, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(lblFinalidadeReuniao)
+                        .addGap(18, 18, 18)))
+                .addGroup(problemaPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(problemaPanel1Layout.createSequentialGroup()
+                        .addComponent(btnUpdateReuniao, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                        .addComponent(btnDeletarReuniao, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(problemaPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        problemaPanel1Layout.setVerticalGroup(
+            problemaPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(problemaPanel1Layout.createSequentialGroup()
+                .addGroup(problemaPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(problemaPanel1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(problemaPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDataReuniao)
+                            .addComponent(txtDataReuniao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFinalidadeReuniao)))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addGroup(problemaPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnUpdateReuniao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCriarReuniao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeletarReuniao, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11))
+        );
+
+        abaReunioes.addTab("Editar", problemaPanel1);
+
         jTabbedPane1.addTab("Reuniões", abaReunioes);
+        abaReunioes.getAccessibleContext().setAccessibleName("Lista de Reuniões");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -675,6 +800,7 @@ public class Main extends javax.swing.JFrame {
                         loadData();
                     }
                 }
+
                 @Override
                 public void onFailure(Call<Void> arg0, Throwable e) {
                     JOptionPane.showMessageDialog(null, e.getMessage());
@@ -682,6 +808,111 @@ public class Main extends javax.swing.JFrame {
             });
         }
     }//GEN-LAST:event_btnDeletarProblemaActionPerformed
+
+    private void tableReunioesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableReunioesMouseClicked
+        int selectedRow = tableReunioes.getSelectedRow();
+        int id = Integer.parseInt(tableReunioes.getValueAt(selectedRow, 0).toString());
+        ReuniaoApi reuniaoApi = ApiClient.getClient().create(ReuniaoApi.class);
+        reuniaoApi.findReuniaoById(id).enqueue(new Callback<Reuniao>() {
+            @Override
+            public void onResponse(Call<Reuniao> arg0, Response<Reuniao> response) {
+                if (response.isSuccessful()) {
+                    Reuniao reuniao = response.body();
+                    txtDataReuniao.setText(reuniao.getData());
+                    txtFinalidadeReuniao.setText(reuniao.getFinalidade());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Reuniao> arg0, Throwable e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
+        });
+
+        if (SwingUtilities.isRightMouseButton(evt) && evt.getClickCount() == 1) {
+            jPopupMenu.show(tableReunioes, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_tableReunioesMouseClicked
+
+    private void jScrollPane5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane5MouseClicked
+        if (SwingUtilities.isRightMouseButton(evt) && evt.getClickCount() == 1) {
+            jPopupMenu.show(tableReunioes, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_jScrollPane5MouseClicked
+
+    private void btnCriarReuniaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarReuniaoActionPerformed
+        try {
+            Reuniao reuniao = new Reuniao();
+            reuniao.setData(txtDataReuniao.getText());
+            reuniao.setFinalidade(txtFinalidadeReuniao.getText());
+            ReuniaoApi reuniaoApi = ApiClient.getClient().create(ReuniaoApi.class);
+            reuniaoApi.createReuniao(reuniao).enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> arg0, Response<Void> response) {
+                    if (response.isSuccessful()) {
+                        loadData();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Void> arg0, Throwable e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            });
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btnCriarReuniaoActionPerformed
+
+    private void btnUpdateReuniaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateReuniaoActionPerformed
+        int selectedRow = tableReunioes.getSelectedRow();
+        int id = Integer.parseInt(tableReunioes.getValueAt(selectedRow, 0).toString());
+        try {
+            Reuniao reuniao = new Reuniao();
+            reuniao.setCodigo(id);
+            reuniao.setData(txtDataReuniao.getText());
+            reuniao.setFinalidade(txtFinalidadeReuniao.getText());
+            ReuniaoApi reuniaoApi = ApiClient.getClient().create(ReuniaoApi.class);
+            reuniaoApi.createReuniao(reuniao).enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> arg0, Response<Void> response) {
+                    if (response.isSuccessful()) {
+                        loadData();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Void> arg0, Throwable e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            });
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btnUpdateReuniaoActionPerformed
+
+    private void btnDeletarReuniaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarReuniaoActionPerformed
+        int selectedRow = tableReunioes.getSelectedRow();
+        int id = Integer.parseInt(tableReunioes.getValueAt(selectedRow, 0).toString());
+        int result = JOptionPane.showConfirmDialog(null, "Deseja excluir a reunião?",
+                "Excluir reunião", JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
+            ReuniaoApi reuniaoApi = ApiClient.getClient().create(ReuniaoApi.class);
+            reuniaoApi.deleteReuniao(id).enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> arg0, Response<Void> response) {
+                    if (response.isSuccessful()) {
+                        loadData();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Void> arg0, Throwable e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            });
+        }
+    }//GEN-LAST:event_btnDeletarReuniaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -728,10 +959,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTabbedPane abaReunioes;
     private javax.swing.JButton btnCriar;
     private javax.swing.JButton btnCriarProblema;
+    private javax.swing.JButton btnCriarReuniao;
     private javax.swing.JButton btnDeletar;
     private javax.swing.JButton btnDeletarProblema;
+    private javax.swing.JButton btnDeletarReuniao;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUpdateProblema;
+    private javax.swing.JButton btnUpdateReuniao;
     private javax.swing.JComboBox<String> comboBoxSituacoes;
     private javax.swing.JComboBox<String> comboBoxSituacoesProblema;
     private javax.swing.JPopupMenu jPopupMenu;
@@ -739,13 +973,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblApartamento;
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblDataInicio;
     private javax.swing.JLabel lblDataResolucao;
+    private javax.swing.JLabel lblDataReuniao;
     private javax.swing.JLabel lblDescricao;
     private javax.swing.JLabel lblEmails;
+    private javax.swing.JLabel lblFinalidadeReuniao;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNomeProblema;
     private javax.swing.JLabel lblObservacoes;
@@ -757,14 +995,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuRefresh;
     private javax.swing.JPanel moradorPanel;
     private javax.swing.JPanel problemaPanel;
+    private javax.swing.JPanel problemaPanel1;
     private javax.swing.JTable tableMoradores;
     private javax.swing.JTable tableProblemas;
+    private javax.swing.JTable tableReunioes;
     private javax.swing.JTextField txtApartamento;
     private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtDataInicio;
     private javax.swing.JTextField txtDataResolucao;
+    private javax.swing.JTextField txtDataReuniao;
     private javax.swing.JTextArea txtDescricaoProblema;
     private javax.swing.JTextField txtEmails;
+    private javax.swing.JTextArea txtFinalidadeReuniao;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNomeProblema;
     private javax.swing.JTextField txtObservacoes;
@@ -777,6 +1019,7 @@ public class Main extends javax.swing.JFrame {
         try {
             MoradorApi moradorApi = ApiClient.getClient().create(MoradorApi.class);
             ProblemaApi problemaApi = ApiClient.getClient().create(ProblemaApi.class);
+            ReuniaoApi reuniaoApi = ApiClient.getClient().create(ReuniaoApi.class);
 
             moradorApi.findAll().enqueue(new Callback<List<Morador>>() {
                 @Override
@@ -846,6 +1089,31 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showConfirmDialog(null, t.getMessage());
                 }
 
+            });
+
+            reuniaoApi.findAll().enqueue(new Callback<List<Reuniao>>() {
+                @Override
+                public void onResponse(Call<List<Reuniao>> call, Response<List<Reuniao>> response) {
+                    if (response.isSuccessful()) {
+                        DefaultTableModel defaultTableModelReuniao = new DefaultTableModel();
+                        defaultTableModelReuniao.addColumn("Código");
+                        defaultTableModelReuniao.addColumn("Data");
+                        defaultTableModelReuniao.addColumn("Finalidade");
+                        for (Reuniao reuniao : response.body()) {
+                            defaultTableModelReuniao.addRow(new Object[]{
+                                reuniao.getCodigo(),
+                                reuniao.getData(),
+                                reuniao.getFinalidade()
+                            });
+                        }
+                        tableReunioes.setModel(defaultTableModelReuniao);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<Reuniao>> Call, Throwable t) {
+                    JOptionPane.showConfirmDialog(null, t.getMessage());
+                }
             });
 
         } catch (Exception e) {
