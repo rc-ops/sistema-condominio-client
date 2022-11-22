@@ -143,17 +143,17 @@ public class Main extends javax.swing.JFrame {
 
         moradorPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Editando morador"));
 
-        lblCpf.setText("CPF");
+        lblCpf.setText("CPF*");
 
-        lblNome.setText("Nome");
+        lblNome.setText("Nome*");
 
-        lblSobrenome.setText("Sobrenome");
+        lblSobrenome.setText("Sobrenome*");
 
         lblTelefones.setText("Telefones");
 
         lblEmails.setText("Emails");
 
-        lblApartamento.setText("Apartamento");
+        lblApartamento.setText("Apartamento*");
 
         lblObservacoes.setText("Observações");
 
@@ -239,7 +239,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(lblObservacoes)
                             .addComponent(lblPendencias))
                         .addGroup(moradorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
                             .addComponent(txtObservacoes)
                             .addGroup(moradorPanelLayout.createSequentialGroup()
                                 .addComponent(comboBoxSituacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -329,13 +329,13 @@ public class Main extends javax.swing.JFrame {
 
         problemaPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Editando problema"));
 
-        lblNomeProblema.setText("Problema");
+        lblNomeProblema.setText("Problema*");
 
         lblDataInicio.setText("Data início");
 
         lblDataResolucao.setText("Data resolução");
 
-        lblDescricao.setText("Descrição");
+        lblDescricao.setText("Descrição*");
 
         lblSituacoes1.setText("Situação");
 
@@ -397,7 +397,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(problemaPanelLayout.createSequentialGroup()
                         .addComponent(btnUpdateProblema, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                         .addComponent(btnDeletarProblema, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(problemaPanelLayout.createSequentialGroup()
                         .addGroup(problemaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -472,9 +472,9 @@ public class Main extends javax.swing.JFrame {
 
         problemaPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Editando problema"));
 
-        lblDataReuniao.setText("Data reunião");
+        lblDataReuniao.setText("Data reunião*");
 
-        lblFinalidadeReuniao.setText("Finalidade");
+        lblFinalidadeReuniao.setText("Finalidade*");
 
         btnCriarReuniao.setText("Criar");
         btnCriarReuniao.addActionListener(new java.awt.event.ActionListener() {
@@ -522,10 +522,10 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(problemaPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(problemaPanel1Layout.createSequentialGroup()
                         .addComponent(btnUpdateReuniao, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                         .addComponent(btnDeletarReuniao, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(problemaPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -539,8 +539,8 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(lblDataReuniao)
                             .addComponent(txtDataReuniao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblFinalidadeReuniao)))
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
                 .addGroup(problemaPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnUpdateReuniao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCriarReuniao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -595,6 +595,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }
             });
+            JOptionPane.showMessageDialog(null, "Morador cadastrado com sucesso!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -651,6 +652,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }
             });
+            JOptionPane.showMessageDialog(null, "Morador excluído!");
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
 
@@ -690,6 +692,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }
             });
+            JOptionPane.showMessageDialog(null, "Dados do morador atualizados!", "Morador", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -751,6 +754,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }
             });
+            JOptionPane.showMessageDialog(null, "Problema cadastrado com sucesso!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -781,6 +785,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }
             });
+            JOptionPane.showMessageDialog(null, "Dados do problema atualizados!", "Problema", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -806,6 +811,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }
             });
+            JOptionPane.showMessageDialog(null, "Problema excluído!");
         }
     }//GEN-LAST:event_btnDeletarProblemaActionPerformed
 
@@ -859,6 +865,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }
             });
+            JOptionPane.showMessageDialog(null, "Reunião cadastrada com sucesso!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -886,6 +893,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }
             });
+            JOptionPane.showMessageDialog(null, "Dados da reunião atualizados!", "Reunião", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -911,6 +919,7 @@ public class Main extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }
             });
+            JOptionPane.showMessageDialog(null, "Reunião excluída!");
         }
     }//GEN-LAST:event_btnDeletarReuniaoActionPerformed
 

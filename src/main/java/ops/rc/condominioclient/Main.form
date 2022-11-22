@@ -194,7 +194,7 @@
                                       <Component id="lblPendencias" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane3" pref="402" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane3" pref="397" max="32767" attributes="0"/>
                                       <Component id="txtObservacoes" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="comboBoxSituacoes" min="-2" pref="92" max="-2" attributes="0"/>
@@ -269,21 +269,21 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="lblCpf">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="CPF"/>
+                    <Property name="text" type="java.lang.String" value="CPF*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCpf">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblNome">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Nome"/>
+                    <Property name="text" type="java.lang.String" value="Nome*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNome">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblSobrenome">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Sobrenome"/>
+                    <Property name="text" type="java.lang.String" value="Sobrenome*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtSobrenome">
@@ -304,7 +304,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblApartamento">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Apartamento"/>
+                    <Property name="text" type="java.lang.String" value="Apartamento*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtApartamento">
@@ -491,7 +491,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="btnUpdateProblema" min="-2" pref="186" max="-2" attributes="0"/>
-                                  <EmptySpace pref="146" max="32767" attributes="0"/>
+                                  <EmptySpace pref="141" max="32767" attributes="0"/>
                                   <Component id="btnDeletarProblema" min="-2" pref="190" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
@@ -547,7 +547,7 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="lblNomeProblema">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Problema"/>
+                    <Property name="text" type="java.lang.String" value="Problema*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNomeProblema">
@@ -568,7 +568,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblDescricao">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
+                    <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblSituacoes1">
@@ -727,11 +727,11 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="btnUpdateReuniao" min="-2" pref="186" max="-2" attributes="0"/>
-                                  <EmptySpace pref="130" max="32767" attributes="0"/>
+                                  <EmptySpace pref="120" max="32767" attributes="0"/>
                                   <Component id="btnDeletarReuniao" min="-2" pref="190" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="jScrollPane6" min="-2" pref="154" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane6" min="-2" pref="222" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -751,9 +751,9 @@
                                       <Component id="lblFinalidadeReuniao" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="jScrollPane6" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
+                              <Component id="jScrollPane6" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btnUpdateReuniao" alignment="1" min="-2" pref="52" max="-2" attributes="0"/>
                               <Component id="btnCriarReuniao" alignment="1" min="-2" pref="51" max="-2" attributes="0"/>
@@ -767,14 +767,14 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="lblDataReuniao">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Data reuni&#xe3;o"/>
+                    <Property name="text" type="java.lang.String" value="Data reuni&#xe3;o*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtDataReuniao">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblFinalidadeReuniao">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Finalidade"/>
+                    <Property name="text" type="java.lang.String" value="Finalidade*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnCriarReuniao">
